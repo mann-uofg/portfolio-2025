@@ -1,0 +1,178 @@
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: url('./assets/cursors/Shadow/Large/Normal.cur'), auto;
+}
+
+/* Interactive Elements - Link/Pointer Cursor */
+a, button, [role="button"], .cursor-pointer, 
+summary, label[for], select, 
+.group:hover, [onclick], [data-clickable] {
+  cursor: url('./assets/cursors/Shadow/Large/Link.cur'), pointer;
+}
+
+/* Text Input Elements */
+input[type="text"], input[type="email"], input[type="password"], 
+input[type="search"], input[type="tel"], input[type="url"],
+input[type="number"], textarea, [contenteditable="true"] {
+  cursor: url('./assets/cursors/Shadow/Large/Text.cur'), text;
+}
+
+/* Busy/Loading States */
+.loading, .busy, [aria-busy="true"], 
+body.loading, *[data-loading="true"] {
+  cursor: url('./assets/cursors/Shadow/Large/Working.ani'), wait;
+}
+
+/* Help Cursor */
+.help, [role="tooltip"], [title] {
+  cursor: url('./assets/cursors/Shadow/Large/Help.cur'), help;
+}
+
+/* Move Cursor */
+.move, [draggable="true"]:active {
+  cursor: url('./assets/cursors/Shadow/Large/Move.cur'), move;
+}
+
+/* Diagonal Resize Cursors */
+.resize-nwse {
+  cursor: url('./assets/cursors/Shadow/Large/Diagonal%20Resize%201.cur'), nwse-resize;
+}
+
+.resize-nesw {
+  cursor: url('./assets/cursors/Shadow/Large/Diagonal%20Resize%202.cur'), nesw-resize;
+}
+
+/* Horizontal Resize */
+.resize-ew {
+  cursor: url('./assets/cursors/Shadow/Large/Horizontal%20Resize.cur'), ew-resize;
+}
+
+/* Vertical Resize */
+.resize-ns {
+  cursor: url('./assets/cursors/Shadow/Large/Vertical%20Resize.cur'), ns-resize;
+}
+
+/* Grab/Draggable Elements */
+.draggable, [draggable="true"] {
+  cursor: url('./assets/cursors/Shadow/Large/Closehand.cur'), grab;
+}
+
+/* Precision/Crosshair */
+.precision, .crosshair {
+  cursor: url('./assets/cursors/Shadow/Large/Precision.cur'), crosshair;
+}
+
+/* Zoom Cursors */
+.zoom-in {
+  cursor: url('./assets/cursors/Shadow/Large/Zoom-in.cur'), zoom-in;
+}
+
+.zoom-out {
+  cursor: url('./assets/cursors/Shadow/Large/Zoom-out.cur'), zoom-out;
+}
+
+/* Unavailable/Not-Allowed */
+.not-allowed, :disabled, [disabled], [aria-disabled="true"] {
+  cursor: url('./assets/cursors/Shadow/Large/Unavailable.cur'), not-allowed;
+}
+
+/* Handwriting/Pencil */
+.handwriting, .draw, .pencil {
+  cursor: url('./assets/cursors/Shadow/Large/Handwriting.cur'), crosshair;
+}
+
+/* Pan Cursor */
+.pan {
+  cursor: url('./assets/cursors/Shadow/Large/Pan.cur'), all-scroll;
+}
+
+/* Person Cursor */
+.person, .user {
+  cursor: url('./assets/cursors/Shadow/Large/Person.cur'), pointer;
+}
+
+/* Pin Cursor */
+.pin, .location {
+  cursor: url('./assets/cursors/Shadow/Large/Pin.cur'), pointer;
+}
+
+/* Alternate cursor */
+.cursor-alternate {
+  cursor: url('./assets/cursors/Shadow/Large/Alternate.cur'), pointer;
+}
+
+/* Base Liquid Glass */
+.glass {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.05),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.dark .glass {
+  background: rgba(20, 20, 20, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* iOS 26 Chromatic Glass - Watery/Refractive with RGB Split */
+.chromatic-glass {
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 
+    0 20px 40px -10px rgba(0,0,0,0.1),
+    inset 0 0 20px rgba(255,255,255,0.5),
+    inset 2px 0 10px rgba(255, 0, 255, 0.1),
+    inset -2px 0 10px rgba(0, 255, 255, 0.1);
+}
+
+.dark .chromatic-glass {
+  background: rgba(30, 30, 30, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 
+    0 20px 40px -10px rgba(0,0,0,0.5),
+    inset 0 0 20px rgba(255,255,255,0.05),
+    inset 2px 0 10px rgba(255, 0, 255, 0.05),
+    inset -2px 0 10px rgba(0, 255, 255, 0.05);
+}
+
+/* Liquid Card - Bouncy and Thick */
+.liquid-card {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(30px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.8);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.dark .liquid-card {
+  background: rgba(40, 40, 40, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 
+    0 15px 35px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #000000 0%, #434343 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.dark .text-gradient {
+  background: linear-gradient(135deg, #ffffff 0%, #888888 100%);
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent;
+}
