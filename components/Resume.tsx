@@ -6,7 +6,7 @@ import { LiquidButton } from './ui/LiquidButton';
 
 export const Resume: React.FC = () => {
   const [zoom, setZoom] = useState(1);
-  const pdfUrl = "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf";
+  const pdfUrl = "assets/Resume-LATEST.pdf";
 
   return (
     <SectionWrapper id="resume" className="bg-gray-50/50 dark:bg-[#101010] py-32">
@@ -46,14 +46,14 @@ export const Resume: React.FC = () => {
             </div>
 
             {/* PDF Content Area */}
-            <div className="h-[600px] bg-gray-100 dark:bg-[#1a1a1a] overflow-auto flex justify-center p-8 relative">
+            <div className="h-[600px] bg-gray-100 dark:bg-[#1a1a1a] overflow-hidden flex justify-center p-0 relative">
                  <div 
                     style={{ transform: `scale(${zoom})`, transformOrigin: 'top center', transition: 'transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1)' }}
-                    className="w-full max-w-[800px] bg-white shadow-2xl min-h-[1000px] rounded-sm"
+                    className="w-full h-full bg-white"
                  >
                     <iframe 
-                        src={pdfUrl} 
-                        className="w-full h-full min-h-[1000px]" 
+                        src={`${pdfUrl}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`} 
+                        className="w-full h-full border-none" 
                         title="Resume PDF"
                     ></iframe>
                  </div>

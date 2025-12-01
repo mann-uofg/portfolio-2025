@@ -203,7 +203,7 @@ export const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme }) => {
             `}
         >
             <DockIcon mouseX={mouseX} href="#" icon={Home} label="Home" />
-            <DockIcon mouseX={mouseX} href="#projects" icon={Briefcase} label="Work" />
+            <DockIcon mouseX={mouseX} href="#projects" icon={Briefcase} label="Projects" />
             <DockIcon mouseX={mouseX} href="#experience" icon={Layers} label="Experience" />
             <DockIcon mouseX={mouseX} href="#resume" icon={FileText} label="Resume" />
             <DockIcon mouseX={mouseX} href="#contact" icon={Mail} label="Contact" />
@@ -215,7 +215,7 @@ export const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme }) => {
                 mouseX={mouseX} 
                 onClick={toggleTheme} 
                 icon={isDark ? Sun : Moon} 
-                label={isDark ? "Light Mode" : "Dark Mode"} 
+                label={isDark ? "Toggle Light" : "Toggle Dark"} 
             />
         </motion.div>
       </div>

@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring, useMotionValue, AnimatePresence } from 'framer-motion';
-import { ArrowDown, Github, Linkedin, RefreshCw, Power, Cpu, CheckCircle2 } from 'lucide-react';
+import { ArrowDown, Github, Linkedin, RefreshCw, Power, Cpu, CheckCircle2, Wand2 } from 'lucide-react';
 import { LiquidButton } from './ui/LiquidButton';
 
 export const Hero: React.FC = () => {
@@ -42,20 +42,38 @@ export const Hero: React.FC = () => {
   const [grid, setGrid] = useState<boolean[]>([]);
   const [isWon, setIsWon] = useState(false);
   const [moves, setMoves] = useState(0);
+  
+  // New State for Solver
+  const [solutionPath, setSolutionPath] = useState<number[]>([]);
+  const [isAutoSolving, setIsAutoSolving] = useState(false);
 
   const startNewGame = () => {
     const newGrid = Array(GRID_SIZE * GRID_SIZE).fill(true);
+    const newSolutionPath: number[] = [];
     let previousIndex = -1;
+    
     // Create solvable puzzle by working backwards
     for(let i = 0; i < 7; i++) {
         let r = Math.floor(Math.random() * (GRID_SIZE * GRID_SIZE));
         while(r === previousIndex) r = Math.floor(Math.random() * (GRID_SIZE * GRID_SIZE));
         toggleLogic(newGrid, r);
+        newSolutionPath.push(r); // Track the move
         previousIndex = r;
     }
+    
+    // Consolidate duplicates in path (clicking twice cancels out)
+    const uniquePath = newSolutionPath.reduce((acc, curr) => {
+        if (acc.includes(curr)) {
+            return acc.filter(n => n !== curr);
+        }
+        return [...acc, curr];
+    }, [] as number[]);
+
     setGrid([...newGrid]);
+    setSolutionPath(uniquePath);
     setIsWon(false);
     setMoves(0);
+    setIsAutoSolving(false);
   };
 
   const toggleLogic = (currentGrid: boolean[], index: number) => {
@@ -70,12 +88,49 @@ export const Hero: React.FC = () => {
   };
 
   const handleCellClick = (index: number) => {
-      if (isWon) return;
+      if (isWon || isAutoSolving) return;
+      
       const newGrid = [...grid];
       toggleLogic(newGrid, index);
       setGrid(newGrid);
       setMoves(m => m + 1);
+      
+      // Update solution path dynamically
+      setSolutionPath(prev => {
+          if (prev.includes(index)) {
+              // User clicked a correct node, remove it from needed moves
+              return prev.filter(i => i !== index);
+          } else {
+              // User clicked a wrong node, add it to needed moves (needs undo)
+              return [...prev, index];
+          }
+      });
+
       if (newGrid.every(c => c)) setIsWon(true);
+  };
+
+  const handleAutoSolve = async () => {
+      if (isAutoSolving || isWon) return;
+      setIsAutoSolving(true);
+      
+      // Create a copy of the path to iterate over
+      const movesToMake = [...solutionPath];
+      
+      for (const index of movesToMake) {
+          await new Promise(resolve => setTimeout(resolve, 300)); // Delay for animation
+          
+          setGrid(prev => {
+              const newGrid = [...prev];
+              toggleLogic(newGrid, index);
+              return newGrid;
+          });
+          
+          // Remove from path visually
+          setSolutionPath(prev => prev.filter(i => i !== index));
+      }
+      
+      setIsWon(true);
+      setIsAutoSolving(false);
   };
 
   useEffect(() => { startNewGame(); }, []);
@@ -102,26 +157,53 @@ export const Hero: React.FC = () => {
             Computer Engineering Student
           </div>
           
-          <h1 className="text-6xl md:text-8xl font-bold tracking-tighter mb-8 text-light-text dark:text-dark-text leading-[1.05]">
-            <span className="text-transparent bg-clip-text bg-gradient-to-br from-black to-gray-600 dark:from-white dark:to-gray-400">Silicon</span> Roots.<br/>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-cyan-400">Digital</span> Flow.
-          </h1>
-          
-          <p className="text-xl md:text-2xl text-light-secondary dark:text-dark-secondary mb-12 max-w-lg mx-auto lg:mx-0 font-normal leading-relaxed">
-            Bridging the gap between hardware architecture and immersive software experiences. Crafting efficient, scalable systems with an eye for design.
-          </p>
+                <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-light-text dark:text-dark-text mb-8"
+                >
+                maybe <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Awwwards</span> nominee? not yet.
+                </motion.h1>
+                
+                <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="text-lg md:text-xl text-light-secondary dark:text-dark-secondary max-w-2xl mb-8 mt-8"
+                >
+                I'm <span className="font-semibold text-light-text dark:text-dark-text">Mann Modi</span> — an International student studying Computer Engineering at the{' '}
+                <a 
+                  href="https://www.uoguelph.ca/engineering/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="chromatic-glass px-3 py-1 rounded-2xl inline-block transform hover:rotate-2 hover:scale-105 transition-all duration-500 font-semibold text-light-text dark:text-dark-text"
+                >
+                  University of Guelph 🇨🇦
+                </a>I write code that somehow works and design websites that make people forget to blink.
+                </motion.p>
 
-          <div className="flex flex-col sm:flex-row items-center gap-5 justify-center lg:justify-start">
+          <div className="flex flex-col sm:flex-row items-center gap-5 justify-center lg:justify-start mt-4">
             <LiquidButton href="#projects" variant="primary">
                View Projects <ArrowDown className="w-4 h-4" />
             </LiquidButton>
             
             <div className="flex items-center gap-3">
-               <a href="#" className="p-4 glass rounded-full text-light-text dark:text-dark-text hover:bg-white/40 dark:hover:bg-white/10 transition-all hover:scale-110 shadow-lg shadow-black/5">
-                 <Github className="w-5 h-5" />
+               <a 
+               href="https://github.com/mann-uofg" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               className="p-4 glass rounded-full text-light-text dark:text-dark-text hover:bg-white/40 dark:hover:bg-white/10 transition-all hover:scale-110 shadow-lg shadow-black/5"
+               >
+               <Github className="w-5 h-5" />
                </a>
-               <a href="#" className="p-4 glass rounded-full text-light-text dark:text-dark-text hover:bg-white/40 dark:hover:bg-white/10 transition-all hover:scale-110 shadow-lg shadow-black/5">
-                 <Linkedin className="w-5 h-5" />
+               <a 
+               href="https://linkedin.com/in/mann-uofg" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               className="p-4 glass rounded-full text-light-text dark:text-dark-text hover:bg-white/40 dark:hover:bg-white/10 transition-all hover:scale-110 shadow-lg shadow-black/5"
+               >
+               <Linkedin className="w-5 h-5" />
                </a>
             </div>
           </div>
@@ -149,6 +231,24 @@ export const Hero: React.FC = () => {
                     </div>
                     <div className="flex items-center gap-3">
                         <span className="text-xs font-mono text-gray-500">{moves} MOVES</span>
+                        
+                        {/* Auto Solve Button - Appears after 30 moves */}
+                        <AnimatePresence>
+                            {moves >= 30 && !isWon && (
+                                <motion.button
+                                    initial={{ scale: 0, opacity: 0 }}
+                                    animate={{ scale: 1, opacity: 1 }}
+                                    exit={{ scale: 0, opacity: 0 }}
+                                    onClick={handleAutoSolve}
+                                    disabled={isAutoSolving}
+                                    className="p-2 rounded-full bg-purple-500/10 text-purple-500 hover:bg-purple-500/20 transition-colors"
+                                    title="Auto Fix System"
+                                >
+                                    <Wand2 className={`w-4 h-4 ${isAutoSolving ? 'animate-spin' : ''}`} />
+                                </motion.button>
+                            )}
+                        </AnimatePresence>
+
                         <button 
                             onClick={startNewGame}
                             className="p-2 rounded-full hover:bg-white/10 transition-colors text-gray-500 hover:text-blue-500"
@@ -167,12 +267,14 @@ export const Hero: React.FC = () => {
                             whileHover={{ scale: 1.05, z: 10 }}
                             whileTap={{ scale: 0.95, z: 0 }}
                             onClick={() => handleCellClick(i)}
+                            disabled={isAutoSolving}
                             className={`
                                 aspect-square rounded-lg transition-all duration-300 relative overflow-hidden
                                 ${active 
                                     ? 'bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.5)] border border-blue-400' 
                                     : 'bg-gray-200/20 dark:bg-white/5 border border-white/10 hover:border-white/30'
                                 }
+                                ${isAutoSolving && solutionPath.includes(i) ? 'ring-2 ring-purple-400 ring-offset-2 ring-offset-black' : ''}
                             `}
                         >
                             {active && (

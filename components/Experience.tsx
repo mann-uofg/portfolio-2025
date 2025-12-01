@@ -44,10 +44,22 @@ export const Experience = () => {
 			id="experience"
 			className="py-20"
 		>
-			<div className="flex flex-col items-center justify-center w-full">
-				<h2 className="text-4xl font-bold text-center mb-10 text-white">
-					Work Experience
-				</h2>
+			<div className="flex flex-col items-center justify-center w-full mb-20">
+				<motion.div
+					initial={{ opacity: 0, y: -20 }}
+					whileInView={{ opacity: 1, y: 0 }}
+					viewport={{ once: true }}
+					transition={{ duration: 0.6, ease: "easeOut" }}
+					className="text-center"
+				>
+					<h1 className="text-5xl md:text-8xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 mb-2 tracking-tight">
+						Previous
+					</h1>
+					<h2 className="text-3xl md:text-4xl font-bold text-black dark:text-white tracking-wide">
+						Work Experience
+					</h2>
+				</motion.div>
+			</div>
 
 				<div className="relative">
 					{/* Liquid Spine */}
@@ -111,7 +123,6 @@ export const Experience = () => {
 						))}
 					</div>
 				</div>
-			</div>
 		</SectionWrapper>
 	);
 };

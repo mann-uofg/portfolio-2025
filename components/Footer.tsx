@@ -21,7 +21,7 @@ export const Footer: React.FC = () => {
                             The Future.
                         </h2>
                         <div className="flex gap-8">
-                            <a href="mailto:hello@example.com" className="text-2xl font-medium hover:text-blue-500 transition-colors">hello@example.com</a>
+                            <a href="mailto:modim@uoguelph.ca" className="text-2xl font-medium hover:text-blue-500 transition-colors">modim@uoguelph.ca</a>
                         </div>
                     </div>
 
@@ -36,12 +36,12 @@ export const Footer: React.FC = () => {
                 <div className="h-px w-full bg-black/10 dark:bg-white/10 mb-8"></div>
 
                 <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm font-medium text-gray-500">
-                    <p>© {new Date().getFullYear()} DevFolio. Crafted with Fluid Physics.</p>
+                    <p>© {new Date().getFullYear()} Mann's Own. Made w/ ❤️.</p>
                     <div className="flex gap-8">
-                        <a href="#" className="hover:text-black dark:hover:text-white transition-colors">LinkedIn</a>
-                        <a href="#" className="hover:text-black dark:hover:text-white transition-colors">GitHub</a>
-                        <a href="#" className="hover:text-black dark:hover:text-white transition-colors">Twitter</a>
-                        <a href="#" className="hover:text-black dark:hover:text-white transition-colors">Instagram</a>
+                        <a href="https://linkedin.com/in/mann-uofg" className="hover:text-black dark:hover:text-white transition-colors">LinkedIn</a>
+                        <a href="https://github.com/mann-uofg" className="hover:text-black dark:hover:text-white transition-colors">GitHub</a>
+                        {/* <a href="https://twitter.com/mann-uofg" className="hover:text-black dark:hover:text-white transition-colors">Twitter</a> */}
+                        <a href="https://instagram.com/mannn.himself" className="hover:text-black dark:hover:text-white transition-colors">Instagram</a>
                     </div>
                 </div>
             </div>
