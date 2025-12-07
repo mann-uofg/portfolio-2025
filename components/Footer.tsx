@@ -25,11 +25,26 @@ export const Footer: React.FC = () => {
                         </div>
                     </div>
 
-                    <div className="flex flex-col items-end gap-6">
-                        <LiquidButton onClick={scrollToTop} variant="secondary" className="!rounded-full !p-6 !aspect-square">
-                            <ArrowUp className="w-6 h-6" />
-                        </LiquidButton>
-                        <span className="text-sm font-medium text-gray-500">Back to Top</span>
+                    <div className="flex flex-col md:flex-row items-end gap-8">
+                        <a 
+                            href="https://www.buymeacoffee.com/midwxntr" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="mb-8 hover:scale-105 transition-transform duration-300"
+                        >
+                            <img 
+                                src="https://img.buymeacoffee.com/button-api/?text=buy me a coffee.&emoji=☕&slug=midwxntr&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff" 
+                                alt="Buy me a coffee"
+                                className="h-12"
+                            />
+                        </a>
+
+                        <div className="flex flex-col items-end gap-2">
+                            <LiquidButton onClick={scrollToTop} variant="secondary" className="!rounded-full !p-6 !aspect-square">
+                                <ArrowUp className="w-6 h-6" />
+                            </LiquidButton>
+                            <span className="text-sm font-medium text-gray-500">Back to Top</span>
+                        </div>
                     </div>
                 </div>
 
