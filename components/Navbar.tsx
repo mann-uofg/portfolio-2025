@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useMotionValue, useSpring, useTransform, MotionValue, AnimatePresence } from 'framer-motion';
 import { Home, Briefcase, FileText, Mail, Sun, Moon, Layers } from 'lucide-react';
+import useSound from 'use-sound';
 
 interface NavbarProps {
     isDark: boolean;
@@ -244,6 +245,8 @@ function DockIcon({
     onClick?: () => void; 
 }) {
   const ref = useRef<HTMLDivElement>(null);
+  const [playHover] = useSound('/sounds/hover.mp3', { volume: 0.1 });
+  const [playClick] = useSound('/sounds/click.mp3', { volume: 0.4 });
 
   // Calculate distance from mouse to center of this icon
   const distance = useTransform(mouseX, (val) => {
@@ -263,7 +266,11 @@ function DockIcon({
         ref={ref}
         style={{ width }}
         className="aspect-square group relative flex items-center justify-center rounded-full bg-white/40 dark:bg-white/5 border border-white/20 dark:border-white/5 shadow-sm hover:bg-white/60 dark:hover:bg-white/10 transition-colors cursor-pointer"
-        onClick={onClick}
+        onClick={() => {
+            playClick();
+            onClick?.();
+        }}
+        onMouseEnter={() => playHover()}
     >
         {href ? (
             <a href={href} className="flex items-center justify-center w-full h-full">

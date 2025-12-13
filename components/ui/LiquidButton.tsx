@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import useSound from 'use-sound';
 
 interface LiquidButtonProps {
   children: React.ReactNode;
@@ -16,6 +17,9 @@ export const LiquidButton: React.FC<LiquidButtonProps> = ({
   className = '',
   variant = 'primary'
 }) => {
+  const [playHover] = useSound('/sounds/hover.mp3', { volume: 0.1 });
+  const [playClick] = useSound('/sounds/click.mp3', { volume: 0.4 });
+
   const isPrimary = variant === 'primary';
 
   const baseClasses = `
@@ -50,6 +54,8 @@ export const LiquidButton: React.FC<LiquidButtonProps> = ({
       className={`${baseClasses} ${isPrimary ? primaryClasses : secondaryClasses}`}
       whileHover={{ scale: 1.05, y: -2 }}
       whileTap={{ scale: 0.9, y: 0 }}
+      onMouseEnter={() => playHover()}
+      onMouseDown={() => playClick()}
       // SUPER BOUNCY & FAST
       transition={{ type: "spring", stiffness: 500, damping: 15 }} 
     >

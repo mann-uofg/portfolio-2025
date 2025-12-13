@@ -3,9 +3,13 @@ import { motion, useScroll, useTransform, useSpring, useMotionValue, AnimatePres
 import { ArrowDown, Github, Linkedin, RefreshCw, Power, Cpu, CheckCircle2, Wand2 } from 'lucide-react';
 import { LiquidButton } from './ui/LiquidButton';
 import confetti from 'canvas-confetti';
+import useSound from 'use-sound';
 
 export const Hero: React.FC = () => {
   const { scrollY } = useScroll();
+  const [playClick] = useSound('/sounds/click.mp3', { volume: 0.5 });
+  const [playWin] = useSound('/sounds/click.mp3', { volume: 0.5, playbackRate: 1.5, interrupt: true });
+
   const y = useTransform(scrollY, [0, 500], [0, 150]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
@@ -91,6 +95,8 @@ export const Hero: React.FC = () => {
   const handleCellClick = (index: number) => {
       if (isWon || isAutoSolving) return;
       
+      playClick(); // Play sound on click
+
       const newGrid = [...grid];
       toggleLogic(newGrid, index);
       setGrid(newGrid);
@@ -109,6 +115,7 @@ export const Hero: React.FC = () => {
 
       if (newGrid.every(c => c)) {
         setIsWon(true);
+        playWin(); // Play special sound on win
         triggerWinConfetti(); // Call the function
       }
   };
