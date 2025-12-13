@@ -13,7 +13,10 @@ import cloudNightImg from './assets/clouds_night.png';
 
 const App: React.FC = () => {
   const [isDark, setIsDark] = useState(false);
-  const [showIntro, setShowIntro] = useState(true);
+  // Initialize state by checking localStorage
+  const [showIntro, setShowIntro] = useState(() => {
+    return !localStorage.getItem('hasSeenIntro');
+  });
 
   const { scrollY } = useScroll();
 
@@ -48,10 +51,15 @@ const App: React.FC = () => {
     }
   }, [isDark]);
 
+  const handleIntroComplete = () => {
+    setShowIntro(false);
+    localStorage.setItem('hasSeenIntro', 'true');
+  };
+
   return (
     <div className="relative min-h-screen overflow-x-hidden selection:bg-apple-blue selection:text-white">
       <AnimatePresence>
-        {showIntro && <HelloIntro onComplete={() => setShowIntro(false)} />}
+        {showIntro && <HelloIntro onComplete={handleIntroComplete} />}
       </AnimatePresence>
 
       {/* Seamless Parallax Background Container */}

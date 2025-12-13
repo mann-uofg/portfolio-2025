@@ -28,9 +28,13 @@ export const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme }) => {
   const [guideStep, setGuideStep] = useState(0); // 0: Navbar, 1: Game
 
   useEffect(() => {
-    // Show guide after the Hello animation finishes (approx 5s)
-    const timer = setTimeout(() => setShowGuide(true), 4550);
-    return () => clearTimeout(timer);
+    // Only schedule the guide if the user hasn't seen it yet
+    const hasSeenTutorial = localStorage.getItem('hasSeenTutorial');
+    if (!hasSeenTutorial) {
+        // Show guide after the Hello animation finishes (approx 5s)
+        const timer = setTimeout(() => setShowGuide(true), 4550);
+        return () => clearTimeout(timer);
+    }
   }, []);
 
   const handleNext = () => {
@@ -38,11 +42,13 @@ export const Navbar: React.FC<NavbarProps> = ({ isDark, toggleTheme }) => {
         setGuideStep(prev => prev + 1);
     } else {
         setShowGuide(false);
+        localStorage.setItem('hasSeenTutorial', 'true');
     }
   };
 
   const handleSkip = () => {
     setShowGuide(false);
+    localStorage.setItem('hasSeenTutorial', 'true');
   };
 
   // Only show guide if state is true AND we are not on mobile

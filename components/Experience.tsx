@@ -5,37 +5,37 @@ import { motion } from 'framer-motion';
 const experiences = [
 	{
 		id: 1,
-		role: 'Senior Engineer',
-		company: 'Innovate Inc',
-		period: '2023 - Present',
+		role: 'Computer Lab Assistant',
+		company: 'University of Guelph',
+		period: 'Sept. 2025 - Present',
 		description: [
-			'Architecting cloud-native solutions using AWS and Kubernetes.',
-			'Leading a team of 5 developers to deliver enterprise SaaS products.',
-			'Reduced infrastructure costs by 30% through serverless optimization',
+			'Improved lab reliability by updating software and systems across 60+ departmental computers.',
+			'Enhanced student support by creating manuals and diagrams, reducing repeated technical queries by 30%.',
+			'Minimized downtime by organizing inventory and reporting issues promptly, improving maintenance efficiency by 25%.',
 		],
 	},
 	{
 		id: 2,
-		role: 'Software Developer',
-		company: 'TechStart',
-		period: '2021 - 2023',
+		role: 'Software Engineer Intern',
+		company: 'Outlier.ai',
+		period: 'May 2025 - Sept. 2025',
 		description: [
-			'Built high-performance frontend applications with React and Next.js.',
-			'Integrated Stripe for seamless payment processing.',
-			'Implemented real-time chat features using WebSockets.',
+			'Achieved scalable data labeling workflows by building automation modules, increasing processing efficiency by 35%.',
+			'Achieved cleaner architecture by refactoring core Python services, improving API response times by 28%.',
+			'Delivered reliable releases by implementing Pytest-based testing pipelines, reducing bug detection time by 40%.',
 		],
 	},
-	{
-		id: 3,
-		role: 'Junior Developer',
-		company: 'Creative Agency',
-		period: '2020 - 2021',
-		description: [
-			'Collaborated with designers to implement pixel-perfect UIs.',
-			'Maintained legacy PHP codebases and migrated them to Node.js.',
-			'Optimized website performance, achieving 95+ Lighthouse scores.',
-		],
-	},
+	// {
+	// 	id: 3,
+	// 	role: 'Junior Developer',
+	// 	company: 'Creative Agency',
+	// 	period: '2020 - 2021',
+	// 	description: [
+	// 		'Collaborated with designers to implement pixel-perfect UIs.',
+	// 		'Maintained legacy PHP codebases and migrated them to Node.js.',
+	// 		'Optimized website performance, achieving 95+ Lighthouse scores.',
+	// 	],
+	// },
 ];
 
 export const Experience = () => {
