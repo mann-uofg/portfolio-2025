@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring, useMotionValue, AnimatePresence } from 'framer-motion';
 import { ArrowDown, Github, Linkedin, RefreshCw, Power, Cpu, CheckCircle2, Wand2 } from 'lucide-react';
 import { LiquidButton } from './ui/LiquidButton';
+import confetti from 'canvas-confetti';
 
 export const Hero: React.FC = () => {
   const { scrollY } = useScroll();
@@ -106,7 +107,44 @@ export const Hero: React.FC = () => {
           }
       });
 
-      if (newGrid.every(c => c)) setIsWon(true);
+      if (newGrid.every(c => c)) {
+        setIsWon(true);
+        triggerWinConfetti(); // Call the function
+      }
+  };
+
+  const handleAutoWin = () => {
+    const newGrid = Array(25).fill(true);
+    setGrid(newGrid);
+    setIsWon(true);
+    triggerWinConfetti(); 
+  };
+
+  const triggerWinConfetti = () => {
+    const duration = 3000;
+    const end = Date.now() + duration;
+
+    const frame = () => {
+      confetti({
+        particleCount: 2,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+        colors: ['#007AFF', '#00C7BE', '#ffffff']
+      });
+      confetti({
+        particleCount: 2,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 },
+        colors: ['#007AFF', '#00C7BE', '#ffffff']
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    };
+    frame();
   };
 
   const handleAutoSolve = async () => {

@@ -151,6 +151,7 @@ const App: React.FC = () => {
 
       {/* Content Layer */}
       <div className="relative z-10">
+        <div className="noise-overlay" /> {/* Add this line */}
         <Navbar isDark={isDark} toggleTheme={() => setIsDark(!isDark)} />
         
         <motion.main
