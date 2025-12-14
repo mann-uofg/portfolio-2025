@@ -9,8 +9,8 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { HelloIntro } from './components/HelloIntro';
 import { AnimatePresence, motion, useScroll, useTransform } from 'framer-motion';
-import cloudImg from './clouds.png';
-import cloudNightImg from './clouds_night.png';
+import cloudImg from '/clouds.png';
+import cloudNightImg from '/clouds_night.png';
 
 const App: React.FC = () => {
   const [isDark, setIsDark] = useState(false);
