@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Lenis from 'lenis'; 
+import ReactGA from "react-ga4"; // Import GA4
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Projects } from './components/Projects';
@@ -72,6 +73,14 @@ const App: React.FC = () => {
     return () => {
       lenis.destroy();
     };
+  }, []);
+
+  // Initialize Google Analytics
+  useEffect(() => {
+    ReactGA.initialize("G-3HLCHGRRRX"); 
+    
+    // Send pageview for the initial load
+    ReactGA.send({ hitType: "pageview", page: window.location.pathname + window.location.search });
   }, []);
 
   const handleIntroComplete = () => {
