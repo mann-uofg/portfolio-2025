@@ -10,7 +10,9 @@
 <p align="center">
   This is my 2025 portfolio — built to feel like a polished product page, not a PDF with a navigation bar.
   <br />
-  Lots of motion, lots of glass, and a few “wait… that’s interactive?” moments.
+  Lots of motion, lots of glass, and a few “wait… that’s interactive?” moments. That's right.
+  <br />
+  Try switching between light & dark mode here, and see the difference.
 </p>
 
 <p align="center">
