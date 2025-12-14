@@ -85,7 +85,6 @@ VITE_EMAILJS_PUBLIC_KEY=...
 
 The form uses these values in [`components/Contact.tsx`](components/Contact.tsx).
 
-> Note: [`vite.config.ts`](vite.config.ts) also defines `process.env.GEMINI_API_KEY` / `process.env.API_KEY` from `GEMINI_API_KEY`. Keep secrets out of commits.
 
 ---
 
