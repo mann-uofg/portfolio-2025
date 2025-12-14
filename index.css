@@ -1,105 +1,105 @@
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: url('./public/cursors/Shadow/Large/Normal.cur'), auto;
+  cursor: url('./cursors/Shadow/Large/Normal.cur'), auto;
 }
 
 /* Interactive Elements - Link/Pointer Cursor */
 a, button, [role="button"], .cursor-pointer, 
 summary, label[for], select, 
 .group:hover, [onclick], [data-clickable] {
-  cursor: url('./public/cursors/Shadow/Large/Link.cur'), pointer;
+  cursor: url('./cursors/Shadow/Large/Link.cur'), pointer;
 }
 
 /* Text Input Elements */
 input[type="text"], input[type="email"], input[type="password"], 
 input[type="search"], input[type="tel"], input[type="url"],
 input[type="number"], textarea, [contenteditable="true"] {
-  cursor: url('./public/cursors/Shadow/Large/Text.cur'), text;
+  cursor: url('./cursors/Shadow/Large/Text.cur'), text;
 }
 
 /* Busy/Loading States */
 .loading, .busy, [aria-busy="true"], 
 body.loading, *[data-loading="true"] {
-  cursor: url('./public/cursors/Shadow/Large/Working.ani'), wait;
+  cursor: url('./cursors/Shadow/Large/Working.ani'), wait;
 }
 
 /* Help Cursor */
 .help, [role="tooltip"], [title] {
-  cursor: url('./public/cursors/Shadow/Large/Help.cur'), help;
+  cursor: url('./cursors/Shadow/Large/Help.cur'), help;
 }
 
 /* Move Cursor */
 .move, [draggable="true"]:active {
-  cursor: url('./public/cursors/Shadow/Large/Move.cur'), move;
+  cursor: url('./cursors/Shadow/Large/Move.cur'), move;
 }
 
 /* Diagonal Resize Cursors */
 .resize-nwse {
-  cursor: url('./public/cursors/Shadow/Large/Diagonal%20Resize%201.cur'), nwse-resize;
+  cursor: url('./cursors/Shadow/Large/Diagonal%20Resize%201.cur'), nwse-resize;
 }
 
 .resize-nesw {
-  cursor: url('./public/cursors/Shadow/Large/Diagonal%20Resize%202.cur'), nesw-resize;
+  cursor: url('./cursors/Shadow/Large/Diagonal%20Resize%202.cur'), nesw-resize;
 }
 
 /* Horizontal Resize */
 .resize-ew {
-  cursor: url('./public/cursors/Shadow/Large/Horizontal%20Resize.cur'), ew-resize;
+  cursor: url('./cursors/Shadow/Large/Horizontal%20Resize.cur'), ew-resize;
 }
 
 /* Vertical Resize */
 .resize-ns {
-  cursor: url('./public/cursors/Shadow/Large/Vertical%20Resize.cur'), ns-resize;
+  cursor: url('./cursors/Shadow/Large/Vertical%20Resize.cur'), ns-resize;
 }
 
 /* Grab/Draggable Elements */
 .draggable, [draggable="true"] {
-  cursor: url('./public/cursors/Shadow/Large/Closehand.cur'), grab;
+  cursor: url('./cursors/Shadow/Large/Closehand.cur'), grab;
 }
 
 /* Precision/Crosshair */
 .precision, .crosshair {
-  cursor: url('./public/cursors/Shadow/Large/Precision.cur'), crosshair;
+  cursor: url('./cursors/Shadow/Large/Precision.cur'), crosshair;
 }
 
 /* Zoom Cursors */
 .zoom-in {
-  cursor: url('./public/cursors/Shadow/Large/Zoom-in.cur'), zoom-in;
+  cursor: url('./cursors/Shadow/Large/Zoom-in.cur'), zoom-in;
 }
 
 .zoom-out {
-  cursor: url('./public/cursors/Shadow/Large/Zoom-out.cur'), zoom-out;
+  cursor: url('./cursors/Shadow/Large/Zoom-out.cur'), zoom-out;
 }
 
 /* Unavailable/Not-Allowed */
 .not-allowed, :disabled, [disabled], [aria-disabled="true"] {
-  cursor: url('./public/cursors/Shadow/Large/Unavailable.cur'), not-allowed;
+  cursor: url('./cursors/Shadow/Large/Unavailable.cur'), not-allowed;
 }
 
 /* Handwriting/Pencil */
 .handwriting, .draw, .pencil {
-  cursor: url('./public/cursors/Shadow/Large/Handwriting.cur'), crosshair;
+  cursor: url('./cursors/Shadow/Large/Handwriting.cur'), crosshair;
 }
 
 /* Pan Cursor */
 .pan {
-  cursor: url('./public/cursors/Shadow/Large/Pan.cur'), all-scroll;
+  cursor: url('./cursors/Shadow/Large/Pan.cur'), all-scroll;
 }
 
 /* Person Cursor */
 .person, .user {
-  cursor: url('./public/cursors/Shadow/Large/Person.cur'), pointer;
+  cursor: url('./cursors/Shadow/Large/Person.cur'), pointer;
 }
 
 /* Pin Cursor */
 .pin, .location {
-  cursor: url('./public/cursors/Shadow/Large/Pin.cur'), pointer;
+  cursor: url('./cursors/Shadow/Large/Pin.cur'), pointer;
 }
 
 /* Alternate cursor */
 .cursor-alternate {
-  cursor: url('./public/cursors/Shadow/Large/Alternate.cur'), pointer;
+  cursor: url('./cursors/Shadow/Large/Alternate.cur'), pointer;
 }
 
 /* Base Liquid Glass */

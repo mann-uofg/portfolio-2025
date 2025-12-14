@@ -15,7 +15,7 @@ const projects: Project[] = [
 		longDescription:
 			'Reimagining the web browser for a 3D space. This project implements a complete window management system using Three.js and React Fiber, allowing users to manipulate DOM elements in 3D space. Features include hand-tracking emulation, depth-based blur, and volumetric lighting.',
 		tags: ['Python', 'pandas', 'numpy', 'scikit-learn', 'yfinance'],
-		image: 'public/stock-project.png',
+		image: '/stock-project.png',
 		link: 'https://github.com/mann-uofg/stock-price-prediction',
 		github: 'https://github.com/mann-uofg/stock-price-prediction',
 		featured: true,
@@ -28,7 +28,7 @@ const projects: Project[] = [
 		longDescription:
 			'A frictionless banking interface that consolidates crypto and fiat public. Built with Next.js 14 and Tailwind, featuring real-time websocket updates for market data, biometric authentication flows, and AI-driven spending insights.',
 		tags: ['Python', 'SQLite', 'ChromaDB', 'LLMs'],
-		image: 'public/mcp-project.png',
+		image: '/mcp-project.png',
 		link: 'https://pypi.org/project/reviewgenie-mcp/1.3.0/',
 		github: 'https://github.com/mann-uofg/codeview-mcp',
 		featured: false,
@@ -40,7 +40,7 @@ const projects: Project[] = [
 		longDescription:
 			'Decentralized rendering network allowing users to monetize their idle GPU power. The frontend dashboard visualizes active render jobs with a stunning particle simulation.',
 		tags: ['Vite.js', 'TypeScript', 'Liquid Glass', 'WebGL', 'Framer Motion'],
-		image: 'public/portfolio-project.png',
+		image: '/portfolio-project.png',
 		link: '#',
 		github: 'https://github.com/mann-uofg/portfolio-2025',
 		featured: false,
@@ -52,7 +52,7 @@ const projects: Project[] = [
 		longDescription:
 			'An open-source protocol for high-fidelity audio streaming over poor network conditions. Uses adaptive buffering and a custom compression algorithm to deliver CD-quality sound at 128kbps bandwidth.',
 		tags: ['Python', 'JavaScript', 'Vite.js', 'Django', 'Framer Motion'],
-		image: 'public/ugflow-project.png',
+		image: '/ugflow-project.png',
 		link: 'https://ugflow.com/',
 		github: 'https://github.com/brij0/coursescheduler',
 		featured: true,
