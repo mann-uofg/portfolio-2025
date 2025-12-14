@@ -2,8 +2,8 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/clouds_night.png" />
-    <img src="assets/clouds.png" alt="Cloud background used across the site" width="100%" />
+    <source media="(prefers-color-scheme: dark)" srcset="public/clouds_night.png" />
+    <img src="public/clouds.png" alt="Cloud background used across the site" width="100%" />
   </picture>
 </p>
 
@@ -28,7 +28,7 @@
 A soft, cloudy parallax background. Liquid-glass UI. Snappy motion that’s more “buttery” than “bouncy for no reason.”
 Everything is designed to reward hovering, scrolling, and clicking around.
 
-The background layers live in [`App.tsx`](App.tsx) and swap cleanly between light/dark using `assets/clouds.png` and `assets/clouds_night.png`.
+The background layers live in [`App.tsx`](App.tsx) and swap cleanly between light/dark using `public/clouds.png` and `public/clouds_night.png`.
 
 ---
 
@@ -52,7 +52,7 @@ The background layers live in [`App.tsx`](App.tsx) and swap cleanly between ligh
 
 ### Custom cursor system (the subtle flex)
 - Global `.cur`/`.ani` cursor set wired in [`index.css`](index.css).
-- Cursor assets live in [`assets/cursors/`](assets/cursors/).
+- Cursor public live in [`public/cursors/`](public/cursors/).
 
 ### Contact form that actually sends
 - EmailJS integration + success/error UX in [`components/Contact.tsx`](components/Contact.tsx).
@@ -115,4 +115,4 @@ Types live in [`types.ts`](types.ts) (ex: [`Project`](types.ts), [`ExperienceIte
 
 ## License / usage
 
-This is my personal portfolio. If you borrow ideas (please do), swap out the branding, copy, and assets — and leave a little attribution somewhere.
+This is my personal portfolio. If you borrow ideas (please do), swap out the branding, copy, and public — and leave a little attribution somewhere.

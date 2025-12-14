@@ -6,7 +6,7 @@ import { LiquidButton } from './ui/LiquidButton';
 
 export const Resume: React.FC = () => {
   const [zoom, setZoom] = useState(1);
-  const pdfUrl = "assets/Resume-LATEST.pdf";
+  const pdfUrl = "public/Resume-LATEST.pdf";
 
   return (
     <SectionWrapper id="resume" className="bg-gray-50/50 dark:bg-[#101010] py-32">
