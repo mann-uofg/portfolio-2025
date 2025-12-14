@@ -1,78 +1,81 @@
-# Portfolio 2025
+<h1 align="center">Mann's Portfolio</h1>
 
 <p align="center">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/clouds_night.png" />
-    <img src="assets/clouds.png" alt="Cloud background from the site" width="100%" />
+    <img src="assets/clouds.png" alt="Cloud background used across the site" width="100%" />
   </picture>
 </p>
 
 <p align="center">
-  A motion-forward, liquid-glass portfolio built to feel like a product landing page — not a résumé.
+  This is my 2025 portfolio — built to feel like a polished product page, not a PDF with a navigation bar.
   <br />
-  <strong>Chromatic glass</strong> • <strong>custom cursors</strong> • <strong>guided onboarding</strong> • <strong>interactive mini-game</strong>
+  Lots of motion, lots of glass, and a few “wait… that’s interactive?” moments.
 </p>
 
 <p align="center">
-  <a href="#features">Features</a> ·
-  <a href="#tech-stack">Tech Stack</a> ·
-  <a href="#running-locally">Running Locally</a> ·
-  <a href="#configuration">Configuration</a> ·
-  <a href="#project-structure">Project Structure</a>
+  <a href="#the-vibe">The vibe</a> ·
+  <a href="#whats-inside">What’s inside</a> ·
+  <a href="#run-it-locally">Run it locally</a> ·
+  <a href="#emailjs-setup">EmailJS setup</a> ·
+  <a href="#project-map">Project map</a>
 </p>
 
 ---
 
-## Features
+## The vibe
 
-- **Liquid/Chromatic Glass UI**
-  - Glass primitives and “watery” chromatic refraction styles (see [`index.css`](index.css)).
-  - Reusable layout wrapper with springy entrance motion: [`components/ui/SectionWrapper.tsx`](components/ui/SectionWrapper.tsx).
+A soft, cloudy parallax background. Liquid-glass UI. Snappy motion that’s more “buttery” than “bouncy for no reason.”
+Everything is designed to reward hovering, scrolling, and clicking around.
 
-- **Motion-first interactions**
-  - Framer Motion-driven transitions across the site (ex: project bento cards in [`components/Projects.tsx`](components/Projects.tsx)).
-  - Smooth scrolling via Lenis RAF loop in [`App.tsx`](App.tsx).
-
-- **Guided onboarding**
-  - A spotlight walkthrough overlay for first-time visitors (stored in `localStorage`) in [`components/Navbar.tsx`](components/Navbar.tsx).
-
-- **Interactive hero mini-game**
-  - A 5×5 “toggle neighbors” puzzle with win confetti + optional auto-solve in [`components/Hero.tsx`](components/Hero.tsx).
-
-- **Custom cursor system**
-  - OS-style `.cur`/`.ani` cursor set wired globally (see [`index.css`](index.css), assets in [`assets/cursors/`](assets/cursors/)).
-
-- **Contact form with EmailJS**
-  - Sends directly from the UI, with success/error feedback in [`components/Contact.tsx`](components/Contact.tsx).
+The background layers live in [`App.tsx`](App.tsx) and swap cleanly between light/dark using `assets/clouds.png` and `assets/clouds_night.png`.
 
 ---
 
-## Tech Stack
+## What’s inside
 
-- **React + TypeScript** (entry: [`index.tsx`](index.tsx))
-- **Vite** (config: [`vite.config.ts`](vite.config.ts))
-- **Framer Motion** for animation
-- **Lenis** for smooth scrolling (see [`App.tsx`](App.tsx))
-- **EmailJS** for the contact form (see [`components/Contact.tsx`](components/Contact.tsx))
-- **Tailwind via CDN** (configured in [`index.html`](index.html))
-- **use-sound** for UI sounds (see [`components/ui/LiquidButton.tsx`](components/ui/LiquidButton.tsx), [`components/Navbar.tsx`](components/Navbar.tsx))
+### Liquid / Chromatic Glass UI
+- Core glass styles in [`index.css`](index.css) (`.glass`, `.chromatic-glass`, `.liquid-card`).
+- Reusable “section enters like it has a pulse” wrapper: [`SectionWrapper`](components/ui/SectionWrapper.tsx) in [`components/ui/SectionWrapper.tsx`](components/ui/SectionWrapper.tsx).
+
+### Motion-first layout
+- Site-wide motion language powered by Framer Motion (you’ll see it everywhere).
+- Smooth scrolling via Lenis RAF loop in [`App.tsx`](App.tsx).
+
+### The dock + guided onboarding
+- The bottom dock has that magnetic “macOS energy” when you move your cursor across it.
+- First-time visitors get a spotlight walkthrough stored in `localStorage`, implemented in [`components/Navbar.tsx`](components/Navbar.tsx).
+
+### Interactive hero mini‑game (yes, the hero)
+- A 5×5 “toggle neighbors” puzzle with win confetti and an optional auto-solve.
+- The whole thing lives in [`components/Hero.tsx`](components/Hero.tsx).
+
+### Custom cursor system (the subtle flex)
+- Global `.cur`/`.ani` cursor set wired in [`index.css`](index.css).
+- Cursor assets live in [`assets/cursors/`](assets/cursors/).
+
+### Contact form that actually sends
+- EmailJS integration + success/error UX in [`components/Contact.tsx`](components/Contact.tsx).
+
+### Resume viewer
+- A “macOS window” style resume viewer with zoom controls in [`components/Resume.tsx`](components/Resume.tsx).
 
 ---
 
-## Running Locally
+## Run it locally
 
 ```sh
 npm install
 npm run dev
 ```
 
-Vite dev server is configured to run on port **3000** (see [`vite.config.ts`](vite.config.ts)).
+Vite runs on **port 3000** (configured in [`vite.config.ts`](vite.config.ts)).
 
 ---
 
-## Configuration
+## EmailJS setup
 
-Create `.env.local` (already present in the repo root) with EmailJS credentials:
+Create `.env.local` in the repo root:
 
 ```ini
 VITE_EMAILJS_SERVICE_ID=...
@@ -80,39 +83,37 @@ VITE_EMAILJS_TEMPLATE_ID=...
 VITE_EMAILJS_PUBLIC_KEY=...
 ```
 
-> Note: `vite.config.ts` also defines `process.env.GEMINI_API_KEY` / `process.env.API_KEY` from `GEMINI_API_KEY` (see [`vite.config.ts`](vite.config.ts)). Keep secrets out of commits.
+The form uses these values in [`components/Contact.tsx`](components/Contact.tsx).
+
+> Note: [`vite.config.ts`](vite.config.ts) also defines `process.env.GEMINI_API_KEY` / `process.env.API_KEY` from `GEMINI_API_KEY`. Keep secrets out of commits.
 
 ---
 
-## Project Structure
+## Project map
 
-- **App shell & scroll/intro orchestration:** [`App.tsx`](App.tsx)
-- **Top navigation + spotlight tutorial:** [`components/Navbar.tsx`](components/Navbar.tsx)
-- **Hero section + mini-game:** [`components/Hero.tsx`](components/Hero.tsx)
-- **Projects bento grid + modal UX:** [`components/Projects.tsx`](components/Projects.tsx)
-- **Experience timeline:** [`components/Experience.tsx`](components/Experience.tsx)
-- **Resume viewer:** [`components/Resume.tsx`](components/Resume.tsx)
-- **Contact form:** [`components/Contact.tsx`](components/Contact.tsx)
-- **UI primitives:**
-  - Glass tilt + glow card: [`components/ui/GlowingCard.tsx`](components/ui/GlowingCard.tsx)
-  - CTA button: [`components/ui/LiquidButton.tsx`](components/ui/LiquidButton.tsx)
-  - Text effects: [`components/ui/TextScramble.tsx`](components/ui/TextScramble.tsx)
-  - Parallax typography: [`components/ui/VelocityScroll.tsx`](components/ui/VelocityScroll.tsx)
+**App shell / orchestration**
+- Parallax background + smooth scroll + intro gating: [`App.tsx`](App.tsx)
+- Entry point: [`index.tsx`](index.tsx)
 
----
+**Sections**
+- Dock + spotlight guide: [`components/Navbar.tsx`](components/Navbar.tsx)
+- Hero + mini-game: [`components/Hero.tsx`](components/Hero.tsx)
+- Projects bento grid: [`components/Projects.tsx`](components/Projects.tsx)
+- Experience timeline: [`components/Experience.tsx`](components/Experience.tsx)
+- Resume window: [`components/Resume.tsx`](components/Resume.tsx)
+- Email form: [`components/Contact.tsx`](components/Contact.tsx)
+- Footer + back-to-top: [`components/Footer.tsx`](components/Footer.tsx)
 
-## Visual Notes (for maintainers)
+**UI primitives**
+- Tilt + glow card: [`GlowingCard`](components/ui/GlowingCard.tsx) in [`components/ui/GlowingCard.tsx`](components/ui/GlowingCard.tsx)
+- CTA button: [`LiquidButton`](components/ui/LiquidButton.tsx) in [`components/ui/LiquidButton.tsx`](components/ui/LiquidButton.tsx)
+- Hover scramble text: [`TextScramble`](components/ui/TextScramble.tsx) in [`components/ui/TextScramble.tsx`](components/ui/TextScramble.tsx)
+- Parallax typography band: [`VelocityScroll`](components/ui/VelocityScroll.tsx) in [`components/ui/VelocityScroll.tsx`](components/ui/VelocityScroll.tsx)
 
-- Background imagery used here matches the parallax layers in [`App.tsx`](App.tsx):
-  - `assets/clouds.png`
-  - `assets/clouds_night.png`
-
-- Cursor theming lives in [`index.css`](index.css) and is backed by [`assets/cursors/`](assets/cursors/).
+Types live in [`types.ts`](types.ts) (ex: [`Project`](types.ts), [`ExperienceItem`](types.ts)).
 
 ---
 
-## License / Usage
+## License / usage
 
-This is a personal portfolio. If you’re using it as inspiration, please keep attribution and replace assets, copy, and branding.
-
----
+This is my personal portfolio. If you borrow ideas (please do), swap out the branding, copy, and assets — and leave a little attribution somewhere.
