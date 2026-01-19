@@ -202,35 +202,39 @@ export const Hero: React.FC = () => {
             Computer Engineering Student
           </div>
           
-                <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-light-text dark:text-dark-text mb-8"
-                >
-                maybe <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500">Awwwards</span> nominee? not yet.
-                </motion.h1>
-                
-                <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-lg md:text-xl text-light-secondary dark:text-dark-secondary max-w-2xl mb-8 mt-8"
-                >
-                I'm <span className="font-semibold text-light-text dark:text-dark-text">Mann Modi</span> — an International student studying Computer Engineering at the{' '}
-                <a 
-                  href="https://www.uoguelph.ca/engineering/" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="chromatic-glass px-3 py-1 rounded-2xl inline-block transform hover:rotate-2 hover:scale-105 transition-all duration-500 font-semibold text-light-text dark:text-dark-text"
-                >
-                  University of Guelph 🇨🇦
-                </a>I write code that somehow works and design websites that make people forget to blink.
-                </motion.p>
+            <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-light-text dark:text-dark-text mb-8"
+            >
+            maybe <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500"> Awwwards</span> nominee? not yet.
+            </motion.h1>
+            
+            <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-lg md:text-xl text-light-secondary dark:text-dark-secondary max-w-2xl mb-8 mt-8"
+            >
+            I'm <span className="font-semibold text-light-text dark:text-dark-text">Mann Modi</span> — an International student studying Computer Engineering at the{' '}
+            <a 
+              href="https://www.uoguelph.ca/engineering/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="chromatic-glass px-3 py-1 rounded-2xl inline-block transform hover:rotate-2 hover:scale-105 transition-all duration-500 font-semibold text-light-text dark:text-dark-text"
+            >
+              University of Guelph 🇨🇦
+            </a>I write code that somehow works and design websites that make people forget to blink.
+            </motion.p>
 
           <div className="flex flex-col sm:flex-row items-center gap-5 justify-center lg:justify-start mt-4">
             <LiquidButton href="#projects" variant="primary">
                View Projects <ArrowDown className="w-4 h-4" />
+            </LiquidButton>
+
+            <LiquidButton href="https://hardware.mannmadeit.work" variant="primary">
+               Silicon Architectures <Cpu className="w-4 h-4" />
             </LiquidButton>
             
             <div className="flex items-center gap-3">
